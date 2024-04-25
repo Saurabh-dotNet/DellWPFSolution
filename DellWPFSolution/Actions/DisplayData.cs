@@ -10,6 +10,11 @@ namespace DellWPFSolution.Actions
 {
     class DisplayData : IDisplayData
     {
+        /// <summary>
+        /// modify 1st label from model data upon clicking process
+        /// </summary>
+        /// <param name="model">model object where data is stored</param>
+        /// <returns>label 1 string</returns>
         public string CreateLabel1Process(DisplayModel model)
         {
             string s = string.Empty;
@@ -21,6 +26,12 @@ namespace DellWPFSolution.Actions
             return s;
             //return string.Empty;
         }
+
+        /// <summary>
+        /// Create 1st label from model data upon clicking Enter
+        /// </summary>
+        /// <param name="model">model object where data is stored</param>
+        /// <returns>label 1 string</returns>
         public string CreateLabel1(DisplayModel model)
         {
             string s = string.Empty;
@@ -41,6 +52,11 @@ namespace DellWPFSolution.Actions
             return s;
         }
 
+        /// <summary>
+        /// Create 2nd label from model data upon clicking Process
+        /// </summary>
+        /// <param name="model">model object where data is stored</param>
+        /// <returns>label 2 string</returns>
         public string CreateLabel2(DisplayModel model)
         {
             //string s = string.Empty;

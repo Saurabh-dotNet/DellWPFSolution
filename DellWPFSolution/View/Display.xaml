@@ -33,7 +33,7 @@
             </Grid.ColumnDefinitions>
 
             <Button Grid.Column="0" Content="Process" Command="{Binding ProcessCommand}" Margin="5"/>
-            <Label Grid.Column="1" Content="{Binding Label2Text}" Margin="10" Foreground="{DynamicResource ForegroundBrush}"/>
+            <Label Grid.Column="1" Content="{Binding Label2Text}" Margin="10" Foreground="{Binding ForegroundBrush,Mode=OneWay}"/>
 
         </Grid>
     </Grid>

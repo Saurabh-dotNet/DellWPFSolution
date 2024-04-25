@@ -11,6 +11,7 @@ using GalaSoft.MvvmLight.CommandWpf;
 using DellWPFSolution.Actions;
 using DellWPFSolution.ActionInterfaces;
 using System.Windows.Media;
+using System.Windows;
 
 namespace DellWPFSolution.ViewModel
 {
@@ -21,6 +22,7 @@ namespace DellWPFSolution.ViewModel
         private IProcessData _process;
         private IDisplayData _displayData;
         private SolidColorBrush _foregroundBrush;
+
         public string Label1Text
         {
             get { return _model.Label1Text; }
@@ -53,9 +55,9 @@ namespace DellWPFSolution.ViewModel
         public SolidColorBrush ForegroundBrush
         {
             get { return _foregroundBrush; }
-            set
-            {
-                _foregroundBrush = value;
+            set 
+            { 
+                _foregroundBrush =  value;
                 OnPropertyChanged();
             }
         }
@@ -64,6 +66,7 @@ namespace DellWPFSolution.ViewModel
 
         public DisplayViewModel(DisplayModel model, IEnterData enter, IProcessData process, IDisplayData displayData)
         {
+            ForegroundBrush = (SolidColorBrush)Application.Current.FindResource("ForegroundBrush");
             _displayData = displayData;
             _enter = enter;
             _process = process;
@@ -81,28 +84,12 @@ namespace DellWPFSolution.ViewModel
 
         private void Process()
         {
-
-            //_enter.AddString(_model, TextBox1Text);
-            //TextBox1Text = string.Empty;
-            
             Label2Text = _displayData.CreateLabel2(_model);
             Label1Text = _displayData.CreateLabel1Process(_model);
-            TYPE result = _process.Process(Label2Text);
-            switch (result)
-            {
-                case (TYPE.STRING):
-                    ForegroundBrush = new SolidColorBrush(Color.FromRgb(0, 255, 0));
-                    break;
-                case (TYPE.INT):
-                    ForegroundBrush = new SolidColorBrush(Color.FromRgb(0, 0, 255));
-                    break;
-                case (TYPE.SPECIAL):
-                    ForegroundBrush = new SolidColorBrush(Color.FromRgb(255, 0, 0));
-                    break;
-
-            }
-                
+            TYPE result = _process.GetType(Label2Text);
+            ForegroundBrush = _process.GetColorFromType(result);                
         }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
