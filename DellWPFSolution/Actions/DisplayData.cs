@@ -13,7 +13,7 @@ namespace DellWPFSolution.Actions
         public string CreateLabel1Process(DisplayModel model)
         {
             string s = string.Empty;
-            foreach(string item in model.ReverseData)
+            foreach(string item in model.TextBoxData)
             {
                 //string temp = model.ReverseData.Pop();
                 s = item + s;
@@ -28,8 +28,8 @@ namespace DellWPFSolution.Actions
             foreach (string item in model.TextBoxData)
             {
                 s = item + s;
-                model.ReverseData.Push(item);
-                model.UntouchedReverseData.Push(item);
+                //model.ReverseData.Push(item);
+                //model.UntouchedReverseData.Push(item);
             }
             //while (model.TextBoxData.Count > 0)
             //{
@@ -49,7 +49,15 @@ namespace DellWPFSolution.Actions
             //    string temp = model.ReverseData.Pop();
             //    s = s + temp;
             //}
-            return model.ReverseData.Pop();
+            //model.ReverseData.Reverse();
+            if (model.TextBoxData.Count > 0)
+            {
+                return model.TextBoxData.Dequeue();
+            }
+            else
+            {
+                return string.Empty;
+            }
         }
     }
 }

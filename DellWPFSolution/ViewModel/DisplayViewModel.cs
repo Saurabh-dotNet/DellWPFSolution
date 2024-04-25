@@ -59,7 +59,6 @@ namespace DellWPFSolution.ViewModel
                 OnPropertyChanged();
             }
         }
-        // Command for Enter button
         public ICommand EnterCommand { get; }
         public ICommand ProcessCommand { get; }
 

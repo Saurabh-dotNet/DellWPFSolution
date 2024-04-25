@@ -14,8 +14,8 @@
 
         <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto" MinWidth="123"/>
+                <ColumnDefinition Width="Auto" MinWidth="84"/>
                 <ColumnDefinition Width="Auto" MinWidth="156"/>
                 <ColumnDefinition Width="Auto" MinWidth="28"/>
             </Grid.ColumnDefinitions>

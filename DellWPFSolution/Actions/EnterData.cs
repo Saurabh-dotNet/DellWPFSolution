@@ -17,6 +17,8 @@ namespace DellWPFSolution.Actions
             {
                 model.TextBoxData.Enqueue(text);
                 model.UntouchedTextBoxData.Enqueue(text);
+                model.ReverseData.Push(text);
+                model.UntouchedReverseData.Push(text);
             }
         }
     }
